@@ -1,5 +1,5 @@
 const base_url = "https://otakudesu-zeta.vercel.app/";
-const base_url2 = "https://kumanimeapi.vercel.app/api/
+const base_url2 = "https://kumanimeapi.vercel.app/api/";
 
 window.addEventListener("load", pageLoaded);
 
@@ -15,7 +15,7 @@ function searchAnime(event) {
 	const form = new FormData(this);
 	const query = form.get("search");
 
-	fetch(`${base_url}/search/anime?q=${query}&page=1`)
+	fetch(`${base_url}/search/?${keyword}`)
 	.then(res=>res.json())
 	.then(updateDOM)
 	.catch(err=>console.warn(err.message));
