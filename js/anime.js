@@ -15,7 +15,7 @@ function searchAnime(event) {
 	const form = new FormData(this);
 	const query = form.get("search");
 
-	fetch(`${base_url}/search/?${keyword}`)
+	fetch(`${base_url2}/search/?${value}`)
 	.then(res=>res.json())
 	.then(updateDOM)
 	.catch(err=>console.warn(err.message));
@@ -32,12 +32,10 @@ function updateDOM(data) {
 		.map(anime=>{
 			return `
 				<div class="card mx-auto my-2" style="width: 18rem;">
-			    	<img class="card-img-top" src="${anime.image_url}" alt="Card image cap">
+			    	<img class="card-img-top" src="${data.thumb}" alt="Card image cap">
 			  		<div class="card-body">
-				    	<h5 class="card-title">${anime.title}</h5>
-				    	<p class="card-text">${anime.synopsis}</p>
-				    	<p class="card-text">Puntaje: ${anime.score}</p>
-				    	<a href="${anime.url}" class="btn btn-primary">Saber más</a>
+				    	<h5 class="card-title">${data.title}</h5>
+				    	<p class="card-text">${data.status}</p>
 			  		</div>
 				</div>	
 			`
